@@ -6,7 +6,7 @@
 		packages: [
 			{
 				name: "src",
-				location: location.href.substr(0, index) + '/myMap'
+				location: location.href.substr(0, index) + '/src'
 			}
 		],
 		//baseUrl: '',

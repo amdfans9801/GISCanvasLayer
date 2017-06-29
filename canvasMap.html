@@ -19,18 +19,36 @@
         overflow:hidden;
     }
 </style>
-
-<script type="text/javascript" src="src/Base/jquery-3.2.1.js"></script>
-<script type="text/javascript" src="src/Base/require.js"></script>
-<script type="text/javascript" src="src/Base/dojo.js"></script>
+<link rel="stylesheet" href="https://js.arcgis.com/3.20/esri/css/esri.css">
 <script type="text/javascript" src="config.js"></script>
+<script src="https://js.arcgis.com/3.20/"></script>
+<script type="text/javascript" src="src/Base/jquery-3.2.1.js"></script>
+<!--<script type="text/javascript" src="src/Base/dojo.js"></script>-->
+<script type="text/javascript" src="src/Base/require.js"></script>
+
+
 
 
 <script type="text/javascript">
+	var map;			//地图
+	var coordConvert;	//坐标转换服务对象
+
     function loadMap(){
         require([
-
-        ], function(){
+        	"esri/map",
+			"esri/SpatialReference",
+	        "esri/geometry/Point",
+			"src/BaseLayer/BaseMap",
+			"src/BaseLayer/CoordConvert",
+        ], function(Map, SpatialReference, Point, BaseMap, CoordConvert){
+			map = new Map("map", {zoom: 10, force3DTransforms: true, logo: false, wrapAround180: false});
+			map.onload("load", function(){
+				$("map_zoom_slider").style.visibility = "hidden";
+				map.setLevel(10);
+				map.centerAt(new Point());
+			});
+			coordConvert = new CoordConvert();
+			map.spatialReference = new SpatialReference({"wkid": 102100});
 
         });
     }
