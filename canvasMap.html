@@ -41,7 +41,7 @@
 			"src/BaseLayer/BaseMap",
 			"src/BaseLayer/CoordConvert",
         ], function(Map, SpatialReference, Point, BaseMap, CoordConvert){
-			map = new Map("map", {zoom: 10, force3DTransforms: true, logo: false, wrapAround180: false});
+			map = new Map("map", {basemap:"streets", zoom: 10, force3DTransforms: true, logo: false, wrapAround180: false});
 			map.onload("load", function(){
 				$("map_zoom_slider").style.visibility = "hidden";
 				map.setLevel(10);

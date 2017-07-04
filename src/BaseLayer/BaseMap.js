@@ -1,5 +1,5 @@
 define([
-	"src/Base/declare",
+	"dojo/_base/declare",
 	"esri/layers/TiledMapServiceLayer",
 	"esri/SpatialReference",
 	"esri/geometry/Extent",
@@ -11,6 +11,7 @@ define([
 			this.type = layerType;
 			this._layerInfo = this._getLayerInfo(layerType);
 			this.spatialReference = new SpatialReference({"wkid": 102100});
+
 		},
 	});
 });

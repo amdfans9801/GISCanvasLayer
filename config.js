@@ -1,5 +1,5 @@
 ;(function(){
-	var index = location.href.indexOf("/", location.href.length - 1);
+	var index = location.href.lastIndexOf("/", location.href.length - 1);
 
 	var dojoConfig = window.dojoConfig = {
 		async: true,
